@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Billing System</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    
+    <!--Header-->
+    <div id="header">
+        <img id="logo" src='static/images/logo.png'>
+        <h1>Billing Management System</h1>
+    </div>
+    <h1 id='h1'>Edit Menu</h1>
+    <div id='menu'>
+        <div>
+            <table id='table1'>
+                {%for i in data%}
+                <tr>
+                <td><h3>{{i.title()}}</h3></td>
+                <td><h4>Rs {{data[i]}}</h4></td>
+                <td><a href='update/{{i}}'><img onclick='open2()' src='static/images/update.png'></a></td>
+                <td><a href='/delete/{{i}}'><img src='static/images/delete.png'></a></td>
+                <td ></td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+    <div id='add'>
+        <h3><img  onclick='open1()'  src='static/images/add.png'></h3>
+    </div>
+    <div id='add-item'>
+        <div id="main-content">
+            <h2>Add Items</h2><img src="static/images/add.png" onclick='close1()' style='width:30px;transform: rotate(45deg);'>
+            <form action="/add-item" method="post">
+                
+                <label>Item Name:</label><br><br>
+                <input type="text" name="item-name" placeholder="Item Name">
+                <br><br>
+                <label>Price</label><br><br>
+                <input type="number" name="item-price" placeholder="Item Price"><br><br>
+                <button onclick="alerts()" id="button1">Input</button>
+            </form>
+        </div>
+    </div>
+    <div id = 'footer'>
+        <a href='/'><img src='static/images/home.png'></a>
+        <a href='/reports'><img src='static/images/reports.png'></a>
+        <a href='/edit'><img src='static/images/edit.png'></a>
+        <a href='/orders'><img src='static/images/orders.png'></a>
+    </div>
+</body>
+<script>
+    function alerts(){
+        alert("Item added to menu")
+    }
+    var content = document.getElementById("add-item")
+    function open1(){
+        content.style.display = 'block'
+    }
+    function close1(){
+        content.style.display = 'none'
+    }
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pilot</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    
+    <!--Header-->
+    <div id="header">
+        <img id="logo" src='../static/images/logo.png'>
+        <h1>Billing Management System</h1>
+    </div>
+    <h1 id='h1'>Bill</h1>
+    <div id='menu'>
+        <table id='table'>
+            <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Price</th>
+            </tr>
+            {%for i in data[0]%}
+            <tr>
+                <th>{{i[0]}}</th>
+                <th>{{i[1]}}</th>
+                <th>{{i[2]}}</th>
+                <th>{{i[3]}}</th>
+            </tr>
+            {%endfor%}
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Total Amount</th>
+                <th>{{data[1]}}</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Payment mode</th>
+                <th><a onclick='alert()'href='/complete/online/{{data[1]}}'>Online</a></th>
+                <th><a onclick='alert()'href='/complete/cash/{{data[1]}}'>Cash</a></th>
+            </tr>
+
+        </table>
+    </div>
+    <div id='cart'><a id='cart' href='/'>Edit Cart</a></div>
+    <div id = 'footer'>
+        <a href='/'><img src='../static/images/home.png'></a>
+        <a href='/reports'><img src='../static/images/reports.png'></a>
+        <a href='/edit'><img src='../static/images/edit.png'></a>
+        <a href='/orders'><img src='../static/images/orders.png'></a>
+    </div>
+</body>
+<script>
+    function alerts(){
+        alert("Payment added to orders")
+    }
+</script>
+
+</html>

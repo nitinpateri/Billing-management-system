@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pilot</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    
+    <!--Header-->
+    <div id="header">
+        <img id="logo" src='../static/images/logo.png'>
+        <h1>Billing Management System</h1>
+    </div>
+    <h1 id='h1'>Hunger's Reports</h1>
+    <div id='menu'>
+        <div id='report'>
+            <table id='table' >
+                <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Online</th>
+                <th>Cash</th>
+                <th>Total</th>
+                </tr>
+                {%for i in data%}
+                <tr>
+                <td>{{i}}</td>
+                <td>{{data[i][0]}}</td>
+                <td>{{data[i][1]}}</td>
+                <td>{{data[i][2]}}</td>
+                <td>{{data[i][3]}}</td>
+                <td>{{data[i][4]}}</td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+    <div id = 'footer'>
+        <a href='/'><img src='../static/images/home.png'></a>
+        <a href='/reports'><img src='../static/images/reports.png'></a>
+        <a href='/edit'><img src='../static/images/edit.png'></a>
+        <a href='/orders'><img src='../static/images/orders.png'></a>
+    </div>
+</body>
+<script>
+    var pay = document.getElementById("payment")
+    function checkout(){
+        pay.style.display='grid'
+    }
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Billing System</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    
+    <!--Header-->
+    <div id="header">
+        <img id="logo" src='../static/images/logo.png'>
+        <h1>Billing Management System</h1>
+    </div>
+    <h1 id='h1'>Edit Menu</h1>
+    <div id='menu'>
+        <div>
+            <table id='table1'>
+                {%for i in data[0]%}
+                <tr>
+                <td><h3>{{i}}</h3></td>
+                <td><h4>Rs {{data[i]}}</h4></td>
+                <td><img onclick='open2()' src='../static/images/update.png'></td>
+                <td><a href='/delete/{{i}}'><img src='../static/images/delete.png'></a></td>
+                <td ></td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+    <div id='update-item'>
+        <div id="main-content">
+            <h2>Update Price</h2><a href='/edit'><img src="../static/images/add.png" style='width:30px;transform: rotate(45deg);'></a>
+            <form action="/update/{{data[1]}}" method="post">
+                <label>Item Name : {{data[1].title()}}</label><br><br>
+                <label>New Price</label>
+                <input type="number" name="item-price" placeholder="Item Price"><br><br>
+                <button id="button1">Input</button>
+            </form>
+        </div>
+    </div>
+    <div id = 'footer'>
+        <a href='/'><img src='../static/images/home.png'></a>
+        <a href='/reports'><img src='../static/images/reports.png'></a>
+        <a href='/edit'><img src='../static/images/edit.png'></a>
+        <a href='/orders'><img src='../static/images/orders.png'></a>
+    </div>
+</body>
+</html>

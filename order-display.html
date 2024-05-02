@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pilot</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    
+    <!--Header-->
+    <div id="header">
+        <img id="logo" src='../static/images/logo.png'>
+        <h1>Billing Management System</h1>
+    </div>
+    <h1 id='h1'>Hunger's Menu</h1>
+    <div id='menu'>
+        <table id='table'>
+            <tr>
+            <th>Order Number</th>
+            <th>Amount Paid</th>
+            <th>More Details</th>
+            </tr>
+            {%for i in data[0]%}
+            <tr>
+            <td>HE{{i[0]}}</td>
+            <td>{{i[4]}}</td>
+            <td><a href='/view/{{i[0]}}'>View details</a></td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+    <div id='menu'>
+        <table id='table'>
+            <tr>
+            <th>Order Number</th>
+            <th>Amount Paid</th>
+            <th>More Details</th>
+            </tr>
+        </table>
+    </div>
+        <div id="main-content">
+            <h2>Order Details</h2><a href='/orders'><img src="../static/images/add.png" style='width:30px;transform: rotate(45deg);'></a>
+            <h3>Order Number:</h3>
+            <table id='table'>
+                <tr>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Prize</th>
+                <th>Total</th>
+                </tr>
+                {%for i in data[1]%}
+                <tr>
+                <td>{{i}}</td>
+                <td>{{data[1][i][0]}}</td>
+                <td>{{data[1][i][1]}}</td>
+                <td>{{data[1][i][0]*data[1][i][1]}}</td>
+                </tr>
+                {%endfor%}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total Amount</td>
+                    <td>{{data[2]}}</td>
+                </tr>
+            </table><br><br>
+            <button id='text-align:center'>Print</button>
+        </div>
+    <div  id='bottom'>
+        Today's Orders - __ , Amount  - __
+    </div>
+    <div id = 'footer'>
+        <a href='/'><img src='../static/images/home.png'></a>
+        <a href='/reports'><img src='../static/images/reports.png'></a>
+        <a href='/edit'><img src='../static/images/edit.png'></a>
+        <a href='/orders'><img src='../static/images/orders.png'></a>
+    </div>
+</body>
+<script>
+    var pay = document.getElementById("payment")
+    function checkout(){
+        pay.style.display='grid'
+    }
+</script>
+
+</html>
